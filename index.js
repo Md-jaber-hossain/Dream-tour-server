@@ -16,6 +16,9 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// --------hiroku link----------//
+// https://mysterious-beach-03194.herokuapp.com/
+
 async function run() {
     try {
         await client.connect();
@@ -23,7 +26,7 @@ async function run() {
         const servicesCollection = database.collection('packages');
         const usersCollection = database.collection('users');
 
-        // -------------Server--------------
+        // -------------Services--------------
         // GET API
         app.get('/services', async (req, res) => {
             const cursor = servicesCollection.find({});
