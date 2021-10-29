@@ -137,10 +137,6 @@ async function run() {
             const options = { upsert: true };
             const updateDoc = {
                 $set: {
-                    name: updatedService.name,
-                    email: updatedService.email,
-                    date: updatedService.date,
-                    service: updatedService.service,
                     status: updatedService.status
                 },
             };
