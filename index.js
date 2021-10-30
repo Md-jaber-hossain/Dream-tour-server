@@ -26,7 +26,7 @@ async function run() {
         const servicesCollection = database.collection('packages');
         const usersCollection = database.collection('users');
 
-        // -------------Services--------------
+        // -------------Package Services--------------//
         // GET API
         app.get('/services', async (req, res) => {
             const cursor = servicesCollection.find({});
@@ -61,29 +61,7 @@ async function run() {
             res.json(result);
         });
 
-        //UPDATE API
-        app.put('/services/:id', async (req, res) => {
-            const id = req.params.id;
-            const updatedService = req.body;
-            const filter = { _id: ObjectId(id) };
-            const options = { upsert: true };
-            const updateDoc = {
-                $set: {
-                    name: updatedService.name,
-                    description: updatedService.description,
-                    price: updatedService.price,
-                    img: updatedService.img
-                },
-            };
-            const result = await servicesCollection.updateOne(filter, updateDoc, options)
-            console.log('updating', id)
-            res.json(result)
-        })
-
-
-
-
-        // -------------User--------------
+        // -------------Booking User--------------///
 
         // GET API
         app.get('/users', async (req, res) => {
